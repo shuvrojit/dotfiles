@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+Xwayland enable
+include "$HOME/.cache/wal/colors-sway"
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -15,6 +18,9 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term st
+
+set $border 1
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -23,9 +29,20 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
+
+output * background $wallpaper fill
+client.focused $color0 $background $foreground $color7 $background
+
 # Example configuration:
+
+default_border pixel $border 
+default_floating_border pixel $border
+gaps inner 2
+gaps outer 2
+smart_gaps off
+
 
 output HDMI-A-1 resolution 1366x768 position 1366,0
 
@@ -200,21 +217,20 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+# bar {
+#     position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 
-include /etc/sway/config.d/*
 
 # PERSONAL CONFIG
 
@@ -230,3 +246,33 @@ bindsym --locked XF86MonBrightnessDown exec sudo light -U 10
 bindsym --locked XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym --locked XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym --locked Xf86AudioMute exec amixer set Master toggle 
+
+set $nag exec swaynagmode
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag --exit
+    q         $nag --exit
+    Escape    $nag --exit
+
+    Return    $nag --confirm
+
+    Tab       $nag --select prev
+    Shift+Tab $nag --select next
+
+    Left      $nag --select next
+    Right     $nag --select prev
+
+    Up        $nag --select next
+    Down      $nag --select prev
+  }
+}
+
+bar {
+    swaybar_command waybar
+}
+
+# include system wide rest of the configuration
+include /etc/sway/config.d/*
+
