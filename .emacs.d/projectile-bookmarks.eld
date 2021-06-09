@@ -1,1 +1,1 @@
-("~/org/" "~/.emacs.d/elpa/vterm-20210409.1558/" "~/repos/st/")
+("~/.dotfiles/" "~/org/" "~/.emacs.d/elpa/vterm-20210409.1558/" "~/repos/st/")
