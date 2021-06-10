@@ -19,7 +19,7 @@ set $right l
 # Your preferred terminal emulator
 set $term st
 
-set $border 1
+set $border 0
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -246,6 +246,8 @@ bindsym --locked XF86MonBrightnessDown exec sudo light -U 10
 bindsym --locked XF86AudioRaiseVolume exec amixer set Master 5%+
 bindsym --locked XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym --locked Xf86AudioMute exec amixer set Master toggle 
+
+exec_always gammastep -l 23:89
 
 set $nag exec swaynagmode
 mode "nag" {

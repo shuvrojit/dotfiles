@@ -111,3 +111,10 @@ alias s="source"
 alias ls="ls -la"
 alias ln="ln"
 alias e="emacsclient -t"
+alias w="wget --progress=bar"
+alias wr="wget -c --progress=bar"
+
+# starting sway on tty1 by default
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+  exec sway
+fi

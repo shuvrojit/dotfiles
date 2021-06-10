@@ -165,6 +165,15 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(defun em/display-startup-time()
+  (message " Emacs loaded in %s with %d garbage collections."
+	   (format "%.2f seconds"
+		   (float-time
+		   (time-subtract after-init-time before-init-time)))
+        gcs-done))
+
+(add-hook 'emacs-startup-hook #'em/display-startup-time)
+
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-set-key (kbd "C-M-u") 'universal-argument)
@@ -454,7 +463,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vertico ws-butler which-key vterm visual-fill-column use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
+   '(treemacs elpy ws-butler which-key vterm visual-fill-column vertico use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
