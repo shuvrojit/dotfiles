@@ -462,8 +462,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("6e14157d0c8857e81035e6c7131dc17e4115b3911c82a1fd32e528aec8e89eab" default))
  '(package-selected-packages
-   '(treemacs elpy ws-butler which-key vterm visual-fill-column vertico use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
+   '(crux treemacs elpy ws-butler which-key vterm visual-fill-column vertico use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

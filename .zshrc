@@ -118,3 +118,5 @@ alias wr="wget -c --progress=bar"
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
+
+alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
