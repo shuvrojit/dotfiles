@@ -1,0 +1,45 @@
+sw_volume: 27
+audio_device_state:1:ALSA sound card
+audio_device_state:1:pulse audio
+audio_device_state:1:my_fifo
+state: stop
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:2L-45_stereo_01_FLAC_88k_24b.flac
+1:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/03 - A.R. Rahman & M.I.A. - O... Saaya.flac
+2:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/02 - Sukhvinder Singh & Tanvi Shah & Mahalaxmi Iyer & Vijay Prakash - Jai Ho.flac
+3:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/04 - Madhumitha - Riots.flac
+4:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/07 - Suzanne - Latika's Theme.flac
+5:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/08 - Madhumitha - Millionaire.flac
+6:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/09 - Blaaze & Tanvi Shah - Gangsta Blues.flac
+7:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/10 - Suzanne - Dreams On Fire.flac
+8:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/06 - Palakkad Sriram & Madhumitha - Liquid Dance.flac
+9:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/05 - Asad Sitar & Rashid Ali & Sanjay Joseph On Guitars - Mausam & Escape.flac
+10:A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/01 - Alka Yagnik & Ila Arun - Ringa Ringa.flac
+song_begin: A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/Slumdog Millionaire.cue/track0004
+Range: 214533-
+Genre: Soundtrack
+Date: 2009
+AlbumArtist: A.R. Rahman & Various Artists
+Album: Slumdog Millionaire
+Track: 04
+Title: Riots
+Artist: Madhumitha
+song_end
+song_begin: A.R. Rahman & Various Artist - Slumdog Millionaire (2009) [FLAC]{idA}/Slumdog Millionaire.cue/track0005
+Range: 119920-233093
+Genre: Soundtrack
+Date: 2009
+AlbumArtist: A.R. Rahman & Various Artists
+Album: Slumdog Millionaire
+Track: 05
+Title: Mausam & Escape
+Artist: Asad Sitar & Rashid Ali & Sanjay Joseph On Guitars
+song_end
+playlist_end

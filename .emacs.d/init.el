@@ -278,6 +278,13 @@
 
 (use-package vterm
   :commands vterm
+  :bind (
+	 :map vterm-mode-map
+	 ("C-h" . evil-delete-backward-char-and-join)
+	 ("C-b" . backward-kill-word)
+	 ("C-j" . vterm-previous-prompt)
+	 )
+
   :config
   (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")
   (setq vterm-shell "zsh")
@@ -339,9 +346,9 @@
    `(org-level-6 ((t (,@headline ,@variable-tuple))))
    `(org-level-5 ((t (,@headline ,@variable-tuple))))
    `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-   `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-   `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-   `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+   `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.15))))
+   `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.2))))
+   `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.25))))
    `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
 
 (custom-theme-set-faces
@@ -383,6 +390,7 @@
  '((emacs-lisp . t)
    (python . t)
    (shell . t)
+   (C . t)
    ))
 
 ;; org-babel confirmation msg hide
@@ -467,7 +475,7 @@
  '(custom-safe-themes
    '("6e14157d0c8857e81035e6c7131dc17e4115b3911c82a1fd32e528aec8e89eab" default))
  '(package-selected-packages
-   '(crux treemacs elpy ws-butler which-key vterm visual-fill-column vertico use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
+   '(speed-type crux treemacs elpy ws-butler which-key vterm visual-fill-column vertico use-package super-save rainbow-delimiters pdf-view-restore org-bullets magit lsp-mode ivy-rich hydra helpful general eyebrowse evil-nerd-commenter evil-collection eterm-256color doom-themes doom-modeline counsel-projectile)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

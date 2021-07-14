@@ -120,3 +120,5 @@ if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
+alias em="emacs"
+alias ed="emacs --with-profile=development"

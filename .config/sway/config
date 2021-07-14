@@ -151,6 +151,8 @@ output HDMI-A-1 resolution 1366x768 position 1366,0
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    bindsym $mod+tab workspace back_and_forth
 #
 # Layout stuff:
 #
@@ -240,13 +242,13 @@ input type:touchpad {
 }
 
 # set brightness logarithmically by factor 1.4
-# .72 is just slightly bigger than 1 / 1.4
-bindsym --locked XF86MonBrightnessUp exec sudo light -A 10
-bindsym --locked XF86MonBrightnessDown exec sudo light -U 10
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# # .72 is just slightly bigger than 1 / 1.4
+# bindsym --locked XF86MonBrightnessUp exec sudo light -A 10
+# bindsym --locked XF86MonBrightnessDown exec sudo light -U 10
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+# bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 exec_always gammastep -l 23:89
 
@@ -271,6 +273,25 @@ mode "nag" {
     Down      $nag --select prev
   }
 }
+
+exec swayidle -w \
+	timeout 300 'swaylock' \
+	timeout 305 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
+
+exec wl-paste -t text --watch clipman store
+
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+
+bindsym XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > $WOBSOCK
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+
+bindsym XF86MonBrightnessUp exec sudo light -A 5 && light -G | cut -d'.' -f1 > $WOBSOCK
+bindsym XF86MonBrightnessDown exec sudo light -U 5 && light -G | cut -d'.' -f1 > $WOBSOCK
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 bar {
     swaybar_command waybar
