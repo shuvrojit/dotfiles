@@ -1,1 +1,1 @@
-("~/.dotfiles/" "~/org/" "~/repos/the-c-programming-language-2nd-edition-solutions/" "~/.nano-emacs/" "~/repos/st/")
+("~/org/" "~/projects/buol/mpc/" "~/.dotfiles/" "~/repos/the-c-programming-language-2nd-edition-solutions/" "~/.nano-emacs/" "~/repos/st/")
