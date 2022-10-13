@@ -32,7 +32,7 @@
 # # open machanisms
 # map <enter> open
 # map E &$OPENER $f
-# map o $mimeopen --ask $f
+# map oz $mimeopen --ask $f
 # map O $mimeopen --ask-default $f
 
 # # general utilities
@@ -43,6 +43,11 @@
 # map D trash
 # map H cd ..
 # map . set hidden!
+
+map ; !rar a "${PWD##*/}".cbr *
+map e !emacs $f
+map bz !unzip "$f" 
+map br !unrar e "$f"
 
 # # create directory/file
 # map ad push $mkdir<space>

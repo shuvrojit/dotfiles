@@ -1,5 +1,0 @@
-(("default" . ((user-emacs-directory . "~/.emacs.default")))
-("development" . ((user-emacs-directory . "~/.emacs.development")))
-("doom" . ((user-emacs-directory . "~/repos/.emacs.doom")
-	   (env. (("doom-private-directory" . "~/.doom.d"))
-	   ))))

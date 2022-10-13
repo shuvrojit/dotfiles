@@ -101,24 +101,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 bindkey -v
-
-alias c="clear"
-alias s="sudo"
-alias pi="sudo pacman -S"
-alias pu="sudo pacman -Syyu"
-alias pr="sudo pacman -Rns"
-alias s="source"
-alias ls="ls -la"
-alias ln="ln"
-alias e="emacsclient -t"
-alias w="wget --progress=bar"
-alias wr="wget -c --progress=bar"
-
-# starting sway on tty1 by default
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec sway
-fi
-
-alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
-alias em="emacs"
-alias ed="emacs --with-profile=development"
