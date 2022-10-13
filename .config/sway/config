@@ -1,8 +1,27 @@
+# reference https://git.sr.ht/~pvsr/dotfiles/commit/f79b9e43d0f49555167709b5cf4b154b19dcc154
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+
+set $black        #282828
+set $darkred      #cc241d
+set $darkgreen    #98971a
+set $darkyellow   #d79921
+set $darkblue     #458588
+set $darkmagenta  #b16286
+set $darkcyan     #689d6a
+set $lightgray    #a89984
+set $darkgray     #928374
+set $red          #fb4934
+set $green        #b8bb26
+set $yellow       #fabd2f
+set $blue         #83a598
+set $magenta      #d3869b
+set $cyan         #8ec07c
+set $white        #ebdbb2
+
 
 Xwayland enable
 #include "$HOME/.cache/wal/colors-sway"
@@ -19,7 +38,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 
-set $border 2
+set $border normal 1
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -46,6 +65,46 @@ smart_gaps off
 
 
 output HDMI-A-1 resolution 1366x768 position 1366,0
+
+# custom
+
+# will start with floating window
+for_window [class="(?i)mpv"] floating enable
+for_window [class="(?i)sxiv"] floating enable
+
+for_window [class="Firefox"] border pixel 0
+for_window [class="alacritty"] border pixel 2
+#for_window [class="transmission"] border pixel 0
+#for_window [class="qutebrowser"] border pixel 0
+for_window [title="Google Chrome"] border pixel 0
+for_window [class="google-chrome"] border pixel 0
+
+hide_edge_borders smart
+
+bindsym $mod+Shift+z move container to workspace back_and_forth
+
+# class                 border      backgr.     text    indicator child_border
+client.focused          $cyan      $cyan      $black  $black    $cyan
+client.focused_inactive $darkblue  $darkblue  $black  $black    $darkblue
+client.unfocused        $black      $black      $white  $black    $black
+client.urgent           $black      $black      $white  $black    $black
+client.placeholder      $black      $black      $white  $black    $black
+client.background       $black
+
+# set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+# mode "$mode_system" {
+#     bindsym l exec --no-startup-id swaylock, mode "default"
+#     bindsym e exec --no-startup-id swaymsg exit, mode "default"
+#     bindsym s exec --no-startup-id swaylock -f && systemctl suspend, mode "default"
+#     bindsym h exec --no-startup-id swaylock -f && systemctl hibernate, mode "default"
+#     bindsym r exec --no-startup-id systemctl reboot -i, mode "default"
+#     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+#     bindsym Control+bracketleft mode "default"
+# }
+# bindsym $mod+q mode "$mode_system"
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
