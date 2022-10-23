@@ -353,8 +353,6 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
 bindsym XF86MonBrightnessUp exec sudo light -A 5 && light -G | cut -d'.' -f1 > $WOBSOCK
 bindsym XF86MonBrightnessDown exec sudo light -U 5 && light -G | cut -d'.' -f1 > $WOBSOCK
 
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
 bar {
     swaybar_command waybar
 }
