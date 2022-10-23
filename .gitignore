@@ -42,3 +42,4 @@
 .config/emacs/auto-save-list/
 .config/emacs/straight/
 .config/emacs/
+/.config/thefuck/
