@@ -43,3 +43,5 @@
 .config/emacs/straight/
 .config/emacs/
 /.config/thefuck/
+/.config/weechat/
+/.config/eww/

@@ -121,9 +121,18 @@ alias w="wget --progress=bar"
 alias wr="wget -c --progress=bar"
 
 # starting sway on tty1 by default
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec sway
-fi
+# if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+#   exec sway
+# fi
+
+# hyprland
+# if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+#     export SDL_VIDEODRIVER=wayland
+#     export MOZ_ENABLE_WAYLAND=1
+#     # export GTK_THEME=Catppuccin-blue:dark
+#     exec Hyprland
+# fi
+
 
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias em="emacs"
@@ -134,7 +143,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 #bat customization
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
