@@ -45,3 +45,4 @@
 /.config/thefuck/
 /.config/weechat/
 /.config/eww/
+*.desktop

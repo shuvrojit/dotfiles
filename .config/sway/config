@@ -24,7 +24,8 @@ set $white        #ebdbb2
 
 
 Xwayland enable
-#include "$HOME/.cache/wal/colors-sway"
+# for pywal
+include "$HOME/.cache/wal/colors-sway"
 
 ### Variables
 #
@@ -43,24 +44,20 @@ set $border normal 1
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi --show run
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/shuv40/Downloads/abstract.jpg fill
-#
-
-# output * background $wallpaper fill
-#client.focused $color0 $background $foreground $color7 $background
-
-# Example configuration:
+# output * bg /home/shuv40/Desktop/pictures/wal1.jpg
+# for pywal
+output * background $wallpaper fill
+client.focused $color0 $background $foreground $color7 $background
 
 default_border pixel $border 
 default_floating_border pixel $border
-gaps inner 0
-gaps outer 0
+gaps inner 2
+gaps outer 3
 smart_gaps off
 
 
@@ -275,7 +272,10 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+p exec grim screenshot.png
+# bindsym $mod+p exec grim screenshot.png
+
+bindsym $mod+p exec cd ~/Desktop/screenshots && grim "$(date +"%Y_%m_%d_%I_%M_%p_%S").png" && popd
+bindsym $mod+Shift+p exec cd ~/Desktop/screenshots && grim -g "$(slurp)" "$(date +"%Y_%m_%d_%I_%M_%p_%S").png" && popd
 
 #
 # Status Bar:
@@ -336,22 +336,23 @@ mode "nag" {
   }
 }
 
-exec swayidle -w \
-	timeout 300 'swaylock' \
-	timeout 305 'swaymsg "output * dpms off"' \
-	resume 'swaymsg "output * dpms on"'
+# exec swayidle -w \
+# 	timeout 300 'swaylock' \
+# 	timeout 305 'swaymsg "output * dpms off"' \
+# 	resume 'swaymsg "output * dpms on"'
 
-exec wl-paste -t text --watch clipman store
+# exec wl-paste -t text --watch clipman store
 
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+# set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+# exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
-bindsym XF86AudioRaiseVolume exec pamixer -ui 5 && pamixer --get-volume > $WOBSOCK
-bindsym XF86AudioLowerVolume exec pamixer -ud 5 && pamixer --get-volume > $WOBSOCK
-bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ 
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- 
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle 
 
-bindsym XF86MonBrightnessUp exec sudo light -A 5 && light -G | cut -d'.' -f1 > $WOBSOCK
-bindsym XF86MonBrightnessDown exec sudo light -U 5 && light -G | cut -d'.' -f1 > $WOBSOCK
+bindsym XF86MonBrightnessUp exec sudo light -A 5  
+bindsym XF86MonBrightnessDown exec sudo light -U 5  
+
 
 bar {
     swaybar_command waybar

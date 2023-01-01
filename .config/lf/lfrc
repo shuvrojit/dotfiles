@@ -1,23 +1,23 @@
-# # lf settings
-# # github.com/rafi/.config
+# lf settings
+# github.com/rafi/.config
 
-# set shell bash
+set shell zsh
 # set shellopts '-eu'
 # set ifs "\n"
 
-# # set color256
-# set icons
-# set hidden
-# set incsearch
+#set color256
+set icons
+#set hidden
+set incsearch
 # set scrolloff 4
 # set tabstop 2
-# set smartcase
+#set smartcase
 # set dircounts
-# set info size
+set info size
 # set sortby natural
 # set ratios '1:2:3'
 # set timefmt '2006-01-02 15:04:05 -0700'
-# set previewer ~/.config/lf/preview
+#set previewer ~/.config/lf/preview
 
 # # Secure logs and socket
 # # ${{
@@ -33,16 +33,16 @@
 # map <enter> open
 # map E &$OPENER $f
 # map oz $mimeopen --ask $f
-# map O $mimeopen --ask-default $f
+map O $mimeopen --ask-default $f
 
 # # general utilities
 # # ---
 # map i $LESS='-iWQMXR~' bat --paging=always --theme=TwoDark "$f"
 # map I push A<c-a>
 # map A rename
-# map D trash
+map D trash
 # map H cd ..
-# map . set hidden!
+map . set hidden!
 
 map ; !rar a "${PWD##*/}".cbr *
 map e !emacs $f

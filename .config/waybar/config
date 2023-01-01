@@ -3,11 +3,11 @@
     // "width": 1280, // Waybar width
 
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "wlr/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["custom/spotify", "custom/media"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "backlight", "keyboard-state", "battery", "clock", "tray"],
 
-     "wlr/workspaces": {
+     "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{icon}",
@@ -45,7 +45,7 @@
     //"on-scroll-down": "playerctl previous"
     //},
 
-    "wlr/mode": {
+    "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
 
@@ -101,7 +101,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
-    "pulseaudio": {
+    "pipewire": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icons}  {volume}%  {format_source}",
         "format-bluetooth": "{icon} {volume}%  {format_source}  ",
