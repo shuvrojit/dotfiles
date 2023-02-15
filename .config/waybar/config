@@ -101,7 +101,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
-    "pipewire": {
+    "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icons}  {volume}%  {format_source}",
         "format-bluetooth": "{icon} {volume}%  {format_source}  ",
@@ -113,7 +113,7 @@
             "headphone": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "if [ -z \"$(pgrep pavucontrol)\" ];then $( pavucontrol);else $(pkill -9 pavucontrol);fi"
     },
 
     "custom/media": {

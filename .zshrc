@@ -15,7 +15,7 @@ export ZSH="/home/shuv40/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -120,7 +120,7 @@ alias ln="ln"
 alias w="wget --progress=bar"
 alias wr="wget -c --progress=bar"
 
-starting sway on tty1 by default
+# starting sway on tty1 by default
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec sway
 fi
@@ -132,16 +132,6 @@ fi
 #     # export GTK_THEME=Catppuccin-blue:dark
 #     exec Hyprland
 # fi
-#bat customization
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# fzf configurations
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-# Uncomment the following line to disable fuzzy completion
-# export DISABLE_FZF_AUTO_COMPLETION="true"
-# Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
-# export DISABLE_FZF_KEY_BINDINGS="true"
-export FZF_DEFAULT_COMMAND='ag'
 
 
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
@@ -151,3 +141,42 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#bat customization
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# fzf configurations
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# Uncomment the following line to disable fuzzy completion
+# export DISABLE_FZF_AUTO_COMPLETION="true"
+# Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
+# export DISABLE_FZF_KEY_BINDINGS="true"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+export FZF_DEFAULT_COMMAND='ag'
+export ear=alsa_output.pci-0000_00_1f.3.analog-stereo.monitor
+export mic=alsa_input.pci-0000_00_1f.3.analog-stereo
+export blu=bluez_output.E8_07_BF_1A_2A_2F.1.monitor
+
+alias wf="cd ~/Desktop/screencasts/ && wf-recorder -f "$(date +"%Y_%m_%d_%I_%M_%p").mp4" --audio=$mic -c libx264rgb flac -p "--preset=fast" && popd"
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# Not supported in the "fish" shell.
+
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+# cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
+
+# Import the colors.
+# . "${HOME}/.cache/wal/colors.sh"
+
+# Create the alias.
+# alias dmen='dmenu_run -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15"'

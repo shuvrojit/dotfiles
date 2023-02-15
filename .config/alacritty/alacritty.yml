@@ -1,12 +1,19 @@
 env:
   term: alacritty
 
+
 window:
   padding: 
     x: 5
     y: 5
   dynamic_padding: true
   opacity: 0.9
+
+import:
+  - ~/.cache/wal/colors.yml
+
+
+window_opacity: 0.9
 
 # Font configuration
 font:
@@ -57,7 +64,7 @@ font:
     # style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 16
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -83,11 +90,11 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-colors:
+# colors:
   # Default colors
-  primary:
-    background: '#1d1f21'
-    foreground: '#c5c8c6'
+  # primary:
+    # background: '{background}'
+    # foreground: '{foreground}'
 
     # Bright and dim foreground colors
     #
@@ -95,8 +102,8 @@ colors:
     # present. If the bright foreground color is not set, or
     # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
     # color will be used.
-    dim_foreground: '#828482'
-    bright_foreground: '#eaeaea'
+    # dim_foreground: '#828482'
+    # bright_foreground: '#eaeaea'
 
   # Cursor colors
   #
